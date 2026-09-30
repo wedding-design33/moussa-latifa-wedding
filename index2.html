@@ -1,270 +1,81 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دعوة زفاف لطيفة وموسى 🍷✨</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
 
-  <style>
-    :root {
-      --bg-dark: #12090b;
-      --card-bg: #1c0e12;
-      --accent-red: #8b1528;
-      --gold: #d4af37;
-      --text-light: #f5f2eb;
-      --text-muted: #b3a59e;
-      --border-color: #381a21;
-    }
+.person {
+  position: absolute;
+  right: 45%;
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  bottom: 0;
+  height: 50vh;
 
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      font-family: 'Amiri', serif;
-      line-height: 1.8;
-      text-align: center;
-      overflow-x: hidden;
-    }
+  object-fit: contain;
+  z-index: 1;
+  user-select: none;
+}
 
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, rgba(18,9,11,0.6) 0%, rgba(18,9,11,1) 100%),
-                  url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      position: relative;
-    }
+.block {
+  height: 100%;
+  position: absolute;
+  width: 50%;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(18, 9, 11, 0.7);
-      z-index: 1;
-    }
+.roof {
+  display: block;
+  align-self: flex-start;
+  height: 60vh;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 600px;
-      border: 1px solid var(--gold);
-      padding: 40px 20px;
-      border-radius: 4px;
-      background: rgba(28, 14, 18, 0.85);
-      backdrop-filter: blur(5px);
-    }
+.girl {
+  position: absolute;
+  left: 30%;
+  display: block;
+  height: 70vh;
+  width: auto;
+  object-fit: contain;
+  margin-right: 20px;
+  user-select: none;
+}
 
-    .subtitle {
-      color: var(--gold);
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
+.haiku {
+  position: absolute;
+  top: 5dvh;
+  left: 80px;
 
-    .names {
-      font-family: 'Playfair Display', 'Amiri', serif;
-      font-size: 3rem;
-      color: var(--text-light);
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 
-    .date {
-      font-size: 1.3rem;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-    }
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS Mincho", serif;
 
-    /* Countdown */
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
+  font-size: 32px;
+  line-height: 2.2;
 
-    .time-box {
-      border: 1px solid var(--border-color);
-      padding: 10px 15px;
-      min-width: 65px;
-      border-radius: 4px;
-      background: rgba(139, 21, 40, 0.2);
-    }
+  color: #111;
 
-    .time-box span {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--gold);
-      font-weight: bold;
-    }
+  letter-spacing: 0.08em;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
+  font-weight: 500;
+  user-select: none;
+}
 
-    .time-box label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+#scene {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
 
-    /* Sections */
-    section {
-      padding: 80px 20px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+  z-index: -1;
+}
 
-    h2 {
-      font-family: 'Playfair Display', 'Amiri', serif;
-      color: var(--gold);
-      font-size: 2.2rem;
-      margin-bottom: 25px;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: '❖';
-      display: block;
-      font-size: 1rem;
-      color: var(--accent-red);
-      margin-top: 5px;
-    }
-
-    /* Event Card */
-    .event-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 30px;
-      border-radius: 8px;
-      margin-bottom: 25px;
-    }
-
-    .event-card h3 {
-      color: var(--text-light);
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .event-card p {
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background: var(--accent-red);
-      color: var(--text-light);
-      padding: 12px 30px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 1rem;
-      border: 1px solid var(--gold);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 15px;
-    }
-
-    .btn:hover {
-      background: var(--gold);
-      color: var(--bg-dark);
-    }
-
-    /* RSVP Form */
-    form {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input, select, textarea {
-      background: var(--bg-dark);
-      border: 1px solid var(--border-color);
-      color: var(--text-light);
-      padding: 12px;
-      border-radius: 4px;
-      font-family: inherit;
-      font-size: 1rem;
-      width: 100%;
-      outline: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--gold);
-    }
-
-    footer {
-      padding: 30px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO SECTION -->
-  <div class="hero">
-    <div class="hero-content">
-      <div class="subtitle">دعوة زفاف خاصة</div>
-      <div class="names">لطيفة & موسى</div>
-      <div class="date">السبت، 15 أكتوبر 2026</div>
-      
-      <div class="countdown">
-        <div class="time-box"><span id="days">00</span><label>أيام</label></div>
-        <div class="time-box"><span id="hours">00</span><label>ساعات</label></div>
-        <div class="time-box"><span id="minutes">00</span><label>دقائق</label></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DETAILS SECTION -->
-  <section>
-    <h2>تفاصيل الموعد والمكان</h2>
-    
-    <div class="event-card">
-      <h3>حفل الزفاف</h3>
-      <p>📍 قاعة الأفراح الملكية - الطريق الرئيسية</p>
-      <p>⏰ الساعة 7:00 مساءً</p>
-      <a href="https://maps.google.com" target="_blank" class="btn">الموقع على Google Maps 📍</a>
-    </div>
-  </section>
-
-  <!-- RSVP SECTION -->
-  <section id="rsvp">
-    <h2>تأكيد الحضور (RSVP)</h2>
-    <form>
-      <input type="text" placeholder="الاسم الكامل" required>
-      <select required>
-        <option value="">هل ستغمرنا بحضورك؟</option>
-        <option value="yes">نعم، سأحضر بكل سرور ✨</option>
-        <option value="no">للأسف، أعتذر عن الحضور 🤍</option>
-      </select>
-      <input type="number" placeholder="عدد المرافقين" min="0" max="5">
-      <textarea placeholder="رسالة للعروسين..." rows="3"></textarea>
-      <button type="submit" class="btn">إرسال التأكيد</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>لطيفة & موسى • بانتظاركم لتكتمل فرحتنا 🍷✨</p>
-  </footer>
-
-</body>
-</html>
