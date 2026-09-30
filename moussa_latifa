@@ -1,150 +1,270 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Latifa & Moussa — Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{--ivory:#efe8db;--cream:#e6dccb;--gold:#b08d57;--bur:#5a1f2b;--brown:#2b1d17;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
-*{box-sizing:border-box;margin:0}
-body{background:var(--cream);color:var(--bur);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;min-height:100%}
-.bg{position:fixed;inset:0;z-index:0;background:linear-gradient(#d9cfbf 0,#e9e1d3 38%,#e4dbcb 100%)}
-.bg svg{position:absolute;top:0;left:0;width:100%;height:46%}
-.bg .paper{position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply}
-.vine{position:absolute;width:60%;max-width:340px;opacity:.5;transition:transform .2s linear}
-.vine.l{left:-6%;top:44%}.vine.r{right:-6%;bottom:4%;transform:scaleX(-1)}
-/* envelope */
-#intro{position:fixed;inset:0;z-index:5;overflow:hidden;perspective:1300px;background:linear-gradient(#efe8db,#d8cfc0 55%,#aaa196);transition:opacity 1.6s ease}
-#intro.gone{opacity:0;pointer-events:none}
-.stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0}
-.bf{width:min(62vw,320px);opacity:0;filter:drop-shadow(8px 12px 10px rgba(60,45,30,.3))}
-.wg{transform-origin:100px 80px;animation:flap .9s ease-in-out infinite alternate}
-@keyframes flap{to{transform:scaleX(.5)}}
-.opening .bf{animation:fly 3.2s ease-in-out 1.6s forwards}
-@keyframes fly{0%{opacity:0;transform:scale(.6)}25%{opacity:1;transform:scale(1)}70%{opacity:1;transform:scale(1) translateY(-4vh)}100%{opacity:0;transform:scale(.8) translateY(-45vh)}}
-.env{position:absolute;inset:0;z-index:2;border:0;background:none;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent}
-.fl{position:absolute;inset:0;transition:transform 2s cubic-bezier(.55,0,.25,1),opacity .6s ease 1.7s;will-change:transform}
-.fl svg{position:absolute;inset:0;width:100%;height:100%}
-.fl.t{clip-path:polygon(0 0,100% 0,50% 50%);background:linear-gradient(#8aa2bd,#7189a6);transform-origin:50% 0;z-index:2;transition-delay:.8s,1.9s}
-.fl.b{clip-path:polygon(0 100%,100% 100%,50% 50%);background:linear-gradient(#5b7390,#4d647f);transform-origin:50% 100%;z-index:1;transition-delay:.9s,2s}
-.fl.l{clip-path:polygon(0 0,50% 50%,0 100%);background:linear-gradient(90deg,#7b93ae,#6b83a0);transform-origin:0 50%;z-index:3;transition-delay:.3s,1.4s}
-.fl.r{clip-path:polygon(100% 0,100% 100%,50% 50%);background:linear-gradient(270deg,#7890ab,#6a829f);transform-origin:100% 50%;z-index:3;transition-delay:.35s,1.4s}
-.opening .fl{opacity:0}.opening .l{transform:rotateY(-115deg)}.opening .r{transform:rotateY(115deg)}.opening .t{transform:rotateX(115deg)}.opening .b{transform:rotateX(-115deg)}
-.cap{position:absolute;left:0;right:0;z-index:6;text-align:center;pointer-events:none;color:#efe8db;transition:opacity .8s}
-.cap.top{top:calc(9vh + env(safe-area-inset-top,0px))}.cap.bot{bottom:calc(9vh + env(safe-area-inset-bottom,0px))}
-.opening .cap{opacity:0}
-.names-s{font-family:'Great Vibes';font-size:clamp(34px,10vw,48px)}
-.sub{letter-spacing:.35em;font-size:13px;text-transform:uppercase;margin-top:6px}
-.hint{font-size:17px;font-style:italic;animation:fade 2.5s ease-in-out infinite}
-@keyframes fade{50%{opacity:.35}}
-.seal{position:absolute;left:50%;top:50%;width:clamp(80px,24vw,112px);aspect-ratio:1;translate:-50% -50%;border-radius:50%;z-index:6;pointer-events:none;background:radial-gradient(circle at 35% 30%,#b3505f,#6d2230 55%,#3f1119);box-shadow:0 4px 12px rgba(0,0,0,.45),inset 0 0 0 4px rgba(255,255,255,.08),inset 0 0 0 8px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;color:#e4c98f;font-family:'Great Vibes';font-size:clamp(24px,7vw,34px);transition:transform 1s ease,opacity .8s ease .3s}
-.opening .seal{transform:translateY(14px) rotate(-14deg) scale(.9);opacity:0}
-/* card */
-#inv{position:relative;z-index:2;display:none;opacity:0;transition:opacity 2s ease;padding:18px 14px 90px}
-#inv.show{opacity:1}
-.sheet{position:relative;max-width:460px;margin:0 auto;padding:44px 24px 40px;background:linear-gradient(#efe8db,#e9e0d0);box-shadow:0 20px 50px rgba(60,40,20,.28);text-align:center;outline:1px solid var(--gold);outline-offset:-10px}
-.sheet::before{content:"";position:absolute;inset:14px;border:1px solid rgba(176,141,87,.5);pointer-events:none}
-.sheet>section{margin-bottom:38px}
-.rv{opacity:0;transform:translateY(14px);transition:opacity 1.4s ease,transform 1.4s ease}.rv.in{opacity:1;transform:none}
-.script{font-family:'Great Vibes',cursive;color:var(--bur);line-height:1.05}
-.t1{font-size:clamp(36px,11vw,50px)}
-.ar{font-family:'Amiri',serif;font-size:clamp(20px,5.6vw,25px);line-height:2;color:var(--brown)}
-.en{font-size:15px;letter-spacing:.14em;text-transform:uppercase;line-height:1.8;color:var(--brown)}
-.names{font-size:clamp(52px,17vw,78px);margin:6px 0}
-.orn{display:block;margin:16px auto;width:150px;color:var(--gold)}
-h2{font-weight:600;letter-spacing:.28em;font-size:15px;text-transform:uppercase;margin-bottom:18px}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.cd div{background:var(--ivory);border:1px solid var(--gold);padding:14px 2px 10px;box-shadow:0 4px 12px rgba(60,40,20,.15);position:relative}
-.cd div::before{content:"";position:absolute;inset:3px;border:1px solid rgba(176,141,87,.35)}
-.cd b{display:block;font-size:clamp(28px,9vw,40px);font-weight:600;color:var(--bur)}
-.cd b.tick{animation:tk .6s ease}@keyframes tk{from{opacity:.2;transform:translateY(-6px)}}
-.cd small{font-size:11px;letter-spacing:.18em;color:#7a6446}
-.done{font-size:22px;letter-spacing:.12em;padding:20px 0;color:var(--bur)}
-.det{display:grid;gap:22px}
-.det svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.1}
-.det p{font-size:20px;color:var(--brown)}.det h3{font-size:12px;letter-spacing:.3em;font-weight:400;margin:6px 0 4px}
-.btn{display:inline-block;margin-top:18px;padding:15px 30px;border:1px solid var(--gold);color:#f3e9d4;background:var(--bur);text-decoration:none;letter-spacing:.25em;font-size:13px;transition:all .5s ease;box-shadow:0 0 0 3px var(--ivory),0 0 0 4px var(--gold)}
-.btn:hover{background:#3f1119;letter-spacing:.3em}
-#music{position:fixed;z-index:9;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:50px;height:50px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(239,232,219,.92);color:var(--bur);display:none;align-items:center;justify-content:center;font-size:20px;cursor:pointer}
-#music.spin span{animation:rot 6s linear infinite;display:block}@keyframes rot{to{rotate:360deg}}
-.petal{position:fixed;top:-20px;z-index:8;width:12px;height:16px;border-radius:80% 0 80% 0;background:linear-gradient(135deg,#f1e2d0,#d9b9a0);opacity:.8;pointer-events:none;animation:fall linear forwards}
-@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(540deg);opacity:.2}}
-.gold{position:fixed;z-index:1;width:3px;height:3px;border-radius:50%;background:#c9a565;opacity:0;animation:tw 6s ease-in-out infinite}
-@keyframes tw{50%{opacity:.7;transform:translateY(-16px)}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
-@media(min-width:700px){.sheet{padding:60px 50px}}
-</style></head><body>
-<div class="bg">
-<svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMin slice"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#cfc3b0"/><stop offset=".5" stop-color="#f1eadf"/><stop offset="1" stop-color="#cbbfab"/></linearGradient></defs>
-<g fill="none" stroke="#bfb29b" stroke-width="1.2"><path d="M0 210Q40 60 200 8Q360 60 400 210" fill="url(#g)" opacity=".7"/><path d="M0 210Q60 90 200 40Q340 90 400 210" opacity=".8"/><path d="M-20 210Q60 120 200 78Q340 120 420 210" fill="#f0e9dc" opacity=".6"/><path d="M200 8V70M110 30Q150 60 200 70Q250 60 290 30"/><circle cx="200" cy="52" r="16" fill="#efe8db"/></g></svg>
-<svg class="paper" width="100%" height="100%"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .38 0 0 0 .5 0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
-<svg class="vine l" viewBox="0 0 200 300" fill="none" stroke="#c9b89a" stroke-width="1.5"><path d="M0 0C60 40 20 120 90 160S60 260 120 300M40 60c20-20 40-10 50 6M30 120c26-14 44 2 46 20M70 190c20-16 44-8 52 8"/></svg>
-<svg class="vine r" viewBox="0 0 200 300" fill="none" stroke="#c9b89a" stroke-width="1.5"><path d="M0 0C60 40 20 120 90 160S60 260 120 300M40 60c20-20 40-10 50 6M30 120c26-14 44 2 46 20M70 190c20-16 44-8 52 8"/></svg>
-</div>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوة زفاف لطيفة وموسى 🍷✨</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-<div id="intro">
-<svg width="0" height="0" style="position:absolute"><defs>
-<g id="fp" fill="none" stroke-width="1.4" stroke-linecap="round"><path id="pt" d="M0 0C-14-10-14-34 0-40C14-34 14-10 0 0Z"/><use href="#pt" transform="rotate(72)"/><use href="#pt" transform="rotate(144)"/><use href="#pt" transform="rotate(216)"/><use href="#pt" transform="rotate(288)"/><circle r="5"/><path d="M0 0C6 50 30 80 64 110M18 52c16-6 30 2 36 16-16 6-30-2-36-16zM40 84c14-10 28-6 36 6-14 8-28 4-36-6z"/></g>
-<g id="fw"><use href="#fp" stroke="#12203a" stroke-opacity=".3" transform="translate(1.6 1.6)"/><use href="#fp" stroke="#fff" stroke-opacity=".3"/></g>
-<radialGradient id="wgd" cx=".3" cy=".5" r=".8"><stop offset="0" stop-color="#8fb0e0"/><stop offset=".6" stop-color="#dfe6ee"/><stop offset="1" stop-color="#f6eee0"/></radialGradient>
-<g id="wp" fill="url(#wgd)" stroke="#8a5a2b" stroke-width="2.5" stroke-linejoin="round"><path d="M100 78C118 34 162 20 186 32C192 62 152 92 100 84Z"/><path d="M100 86C140 90 166 112 150 142C124 156 108 122 100 102Z"/></g></defs></svg>
-<div class="stage"><svg class="bf" viewBox="0 0 200 160"><g class="wg"><use href="#wp"/></g><g transform="translate(200 0) scale(-1 1)"><g class="wg"><use href="#wp"/></g></g><ellipse cx="100" cy="92" rx="3.5" ry="24" fill="#5b4326"/><path d="M98 68Q90 50 84 46M102 68Q110 50 116 46" stroke="#5b4326" fill="none"/></svg></div>
-<div class="fl b"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><use href="#fw" transform="translate(110 620) scale(1.6) rotate(15)"/><use href="#fw" transform="translate(300 700) scale(1.3) rotate(-20)"/></svg></div><div class="fl t"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><use href="#fw" transform="translate(300 90) scale(1.3) rotate(10)"/><use href="#fw" transform="translate(80 60) scale(1) rotate(-10)"/></svg></div><div class="fl l"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><use href="#fw" transform="translate(60 230) scale(1.7) rotate(-8)"/><use href="#fw" transform="translate(110 600) scale(1.2) rotate(20)"/></svg></div><div class="fl r"><svg viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice"><use href="#fw" transform="translate(330 200) scale(1.4) rotate(12)"/><use href="#fw" transform="translate(290 560) scale(1.7) rotate(-15)"/></svg></div>
-<button class="env" id="env" aria-label="Open the invitation"></button>
-<div class="seal">L&amp;M</div>
-<div class="cap top"><div class="names-s">Latifa &amp; Moussa</div><div class="sub">Wedding Invitation</div></div>
-<div class="cap bot"><div class="hint">Open the invitation</div></div>
-</div>
+  <style>
+    :root {
+      --bg-dark: #12090b;
+      --card-bg: #1c0e12;
+      --accent-red: #8b1528;
+      --gold: #d4af37;
+      --text-light: #f5f2eb;
+      --text-muted: #b3a59e;
+      --border-color: #381a21;
+    }
 
-<main id="inv"><article class="sheet">
-<section class="rv"><div class="script t1">Wedding<br>Invitation</div>
-<p class="ar" dir="rtl" style="margin-top:22px">إلى كل من له في قلبي مكان عزيز<br>بكل ود وحب أدعوكم لحضور حفل زفافي</p>
-<svg class="orn" viewBox="0 0 150 16" fill="none" stroke="currentColor"><path d="M0 8H60M90 8H150"/><path d="M75 2c6 4 6 8 0 12-6-4-6-8 0-12zM64 8c5-3 8-3 10 0-2 3-5 3-10 0zM86 8c-5-3-8-3-10 0 2 3 5 3 10 0z"/></svg>
-<div class="script names">Latifa<br>&amp; Moussa</div></section>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<section class="rv"><h2>The Countdown Begins</h2>
-<div id="cd" class="cd"><div><b id="d">0</b><small>DAYS</small></div><div><b id="h">0</b><small>HOURS</small></div><div><b id="m">0</b><small>MINUTES</small></div><div><b id="s">0</b><small>SECONDS</small></div></div></section>
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Amiri', serif;
+      line-height: 1.8;
+      text-align: center;
+      overflow-x: hidden;
+    }
 
-<section class="rv det">
-<div><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/></svg><h3>DATE</h3><p>20 June 2026</p></div>
-<div><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 8v8l5 3"/></svg><h3>TIME</h3><p>20:00</p></div>
-<div><svg viewBox="0 0 32 32"><path d="M16 29S6 19 6 12a10 10 0 0120 0c0 7-10 17-10 17z"/><circle cx="16" cy="12" r="3.5"/></svg><h3>VENUE</h3><p>Afrah Tetouan Traiteur et Glacier<br>Tetouan, Morocco</p></div></section>
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background: linear-gradient(180deg, rgba(18,9,11,0.6) 0%, rgba(18,9,11,1) 100%),
+                  url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      position: relative;
+    }
 
-<section class="rv"><h2>The Venue</h2>
-<p style="font-size:22px;color:var(--brown)">Afrah Tetouan Traiteur et Glacier</p><p style="font-size:18px;color:#7a6446">Tetouan, Morocco</p>
-<a class="btn" href="https://maps.app.goo.gl/L9cGKVYby12gEPHd6" target="_blank" rel="noopener">OPEN LOCATION</a></section>
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 9, 11, 0.7);
+      z-index: 1;
+    }
 
-<section class="rv" style="margin:0"><div class="en">With Love</div><div class="script names" style="font-size:clamp(44px,14vw,64px)">Latifa &amp; Moussa</div>
-<svg class="orn" viewBox="0 0 150 16" fill="none" stroke="currentColor"><path d="M0 8H60M90 8H150"/><path d="M75 2c6 4 6 8 0 12-6-4-6-8 0-12zM64 8c5-3 8-3 10 0-2 3-5 3-10 0zM86 8c-5-3-8-3-10 0 2 3 5 3 10 0z"/></svg>
-<p style="font-size:18px;font-style:italic;color:var(--brown)">Thank you for celebrating this special moment with us.</p></section>
-</article></main>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      border: 1px solid var(--gold);
+      padding: 40px 20px;
+      border-radius: 4px;
+      background: rgba(28, 14, 18, 0.85);
+      backdrop-filter: blur(5px);
+    }
 
-<button id="music" aria-label="Music"><span>♪</span></button>
-<script>
-const $=id=>document.getElementById(id),T=new Date('2026-06-20T20:00:00');
-function pad(n){return String(n).padStart(2,'0')}
-let last={};
-function tick(){const diff=T-new Date();
- if(diff<=0){$('cd').innerHTML='<div class="done" style="grid-column:1/-1;background:none;border:0;box-shadow:none">OUR SPECIAL DAY HAS ARRIVED ♥</div>';clearInterval(iv);return}
- const v={d:Math.floor(diff/864e5),h:Math.floor(diff/36e5)%24,m:Math.floor(diff/6e4)%60,s:Math.floor(diff/1e3)%60};
- for(const k in v){const e=$(k),t=k=='d'?String(v[k]):pad(v[k]);if(last[k]!==t){e.textContent=t;e.classList.remove('tick');void e.offsetWidth;e.classList.add('tick');last[k]=t}}}
-const iv=setInterval(tick,1000);tick();
-function petals(){for(let i=0;i<16;i++){const p=document.createElement('span');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.setProperty('--dx',(Math.random()*120-60)+'px');p.style.animationDuration=(5+Math.random()*4)+'s';p.style.animationDelay=Math.random()*2.5+'s';document.body.appendChild(p);setTimeout(()=>p.remove(),11000)}}
-for(let i=0;i<14;i++){const g=document.createElement('i');g.className='gold';g.style.left=Math.random()*100+'vw';g.style.top=Math.random()*100+'vh';g.style.animationDelay=Math.random()*6+'s';document.body.appendChild(g)}
-let opened=false;
-$('env').onclick=()=>{if(opened)return;opened=true;$('intro').classList.add('opening');
- setTimeout(petals,4300);
- setTimeout(()=>{$('inv').style.display='block';$('music').style.display='flex';requestAnimationFrame(()=>requestAnimationFrame(()=>$('inv').classList.add('show')));$('intro').classList.add('gone');scrollTo(0,0);watch()},4600)};
-function watch(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.rv').forEach(el=>io.observe(el))}
-addEventListener('scroll',()=>{const y=scrollY*.08;document.querySelector('.vine.l').style.transform=`translateY(${-y}px)`;document.querySelector('.vine.r').style.transform=`scaleX(-1) translateY(${y}px)`},{passive:true});
-// soft piano (Pachelbel's Canon, generated; starts only on tap)
-let ac,mg,timer,playing=false,step=0,nt=0;
-const M=n=>440*Math.pow(2,(n-69)/12),P=[0,1,2,3,2,1,2,3];
-const CH=[[38,[62,66,69,74]],[33,[61,64,69,73]],[35,[62,66,71,74]],[42,[61,66,69,73]],[43,[62,67,71,74]],[38,[62,66,69,74]],[43,[62,67,71,74]],[33,[61,64,69,73]]];
-function pn(f,t,v,d){const g=ac.createGain();g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+d);g.connect(mg);[[1,1],[2,.35],[3,.12],[4,.05]].forEach(([m,a])=>{const o=ac.createOscillator();o.frequency.value=f*m;const k=ac.createGain();k.gain.value=a;o.connect(k);k.connect(g);o.start(t);o.stop(t+d+.05)})}
-function sched(){while(nt<ac.currentTime+2){const[c,ns]=CH[Math.floor(step/8)%CH.length],i=step%8;if(i==0)pn(M(c+12),nt,.22,3);pn(M(ns[P[i]]),nt,.16,2.2);nt+=.6;step++}}
-$('music').onclick=()=>{const b=$('music');
- if(!playing){if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();mg=ac.createGain();const dl=ac.createDelay();dl.delayTime.value=.34;const fb=ac.createGain();fb.gain.value=.3;mg.connect(ac.destination);mg.connect(dl);dl.connect(fb);fb.connect(dl);dl.connect(ac.destination)}
-  ac.resume();nt=ac.currentTime+.1;mg.gain.cancelScheduledValues(0);mg.gain.setValueAtTime(0,ac.currentTime);mg.gain.linearRampToValueAtTime(.7,ac.currentTime+1.5);sched();timer=setInterval(sched,500);playing=true;b.classList.add('spin')}
- else{clearInterval(timer);mg.gain.linearRampToValueAtTime(0,ac.currentTime+.8);playing=false;b.classList.remove('spin')}};
-</script></body></html>
+    .subtitle {
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .names {
+      font-family: 'Playfair Display', 'Amiri', serif;
+      font-size: 3rem;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .date {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .time-box {
+      border: 1px solid var(--border-color);
+      padding: 10px 15px;
+      min-width: 65px;
+      border-radius: 4px;
+      background: rgba(139, 21, 40, 0.2);
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .time-box label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', 'Amiri', serif;
+      color: var(--gold);
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '❖';
+      display: block;
+      font-size: 1rem;
+      color: var(--accent-red);
+      margin-top: 5px;
+    }
+
+    /* Event Card */
+    .event-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .event-card h3 {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--accent-red);
+      color: var(--text-light);
+      padding: 12px 30px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: var(--bg-dark);
+    }
+
+    /* RSVP Form */
+    form {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-light);
+      padding: 12px;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 1rem;
+      width: 100%;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+    }
+
+    footer {
+      padding: 30px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="subtitle">دعوة زفاف خاصة</div>
+      <div class="names">لطيفة & موسى</div>
+      <div class="date">السبت، 15 أكتوبر 2026</div>
+      
+      <div class="countdown">
+        <div class="time-box"><span id="days">00</span><label>أيام</label></div>
+        <div class="time-box"><span id="hours">00</span><label>ساعات</label></div>
+        <div class="time-box"><span id="minutes">00</span><label>دقائق</label></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS SECTION -->
+  <section>
+    <h2>تفاصيل الموعد والمكان</h2>
+    
+    <div class="event-card">
+      <h3>حفل الزفاف</h3>
+      <p>📍 قاعة الأفراح الملكية - الطريق الرئيسية</p>
+      <p>⏰ الساعة 7:00 مساءً</p>
+      <a href="https://maps.google.com" target="_blank" class="btn">الموقع على Google Maps 📍</a>
+    </div>
+  </section>
+
+  <!-- RSVP SECTION -->
+  <section id="rsvp">
+    <h2>تأكيد الحضور (RSVP)</h2>
+    <form>
+      <input type="text" placeholder="الاسم الكامل" required>
+      <select required>
+        <option value="">هل ستغمرنا بحضورك؟</option>
+        <option value="yes">نعم، سأحضر بكل سرور ✨</option>
+        <option value="no">للأسف، أعتذر عن الحضور 🤍</option>
+      </select>
+      <input type="number" placeholder="عدد المرافقين" min="0" max="5">
+      <textarea placeholder="رسالة للعروسين..." rows="3"></textarea>
+      <button type="submit" class="btn">إرسال التأكيد</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>لطيفة & موسى • بانتظاركم لتكتمل فرحتنا 🍷✨</p>
+  </footer>
+
+</body>
+</html>
